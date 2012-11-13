@@ -1,0 +1,21 @@
+<h1><%= @poll.title %></h1>
+
+<% @poll.questions.each do |ques| %>
+<table>
+  <tr>
+    <th><%= ques.text %></th>
+  </tr>
+  <tr>
+    <th><%= link_to 'Yes', polls_path %> / <%= link_to 'No', polls_path %></th>
+  </tr>
+  </table>
+    <%= form_for [@poll, ques, @response = Response.new(:question_id => ques.id)] do |f| %>
+      <%= f.text_field :text %>
+      <%= f.submit 'Submit Response' %>
+      <%= f.hidden_field :question_id %>
+    <% end %>
+
+    <br><br><br>
+
+<% end %>
+

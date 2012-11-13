@@ -1,0 +1,13 @@
+<h1>All Polls</h1>
+
+<% @polls.each do |poll|%>
+  <table>
+    <tr>
+      <th><%= poll.title %></th>
+      <th><%= link_to 'Edit', poll_path(poll.id) %></th>
+      <th><%= link_to "shortened", "http://localhost:3000/#{poll.shorty}"%></th>
+    </tr>
+  </table>
+<% end %>
+<br><br>
+<%= link_to 'Create New Poll', new_poll_path %>
