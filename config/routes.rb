@@ -10,8 +10,8 @@ Pollster::Application.routes.draw do
     resources :questions, :only => [ :edit, :create, :update, :destroy ] do
       resources :responses, :only => [:create]
     end
-  end  
-       
+  end
+  root :to => "polls#index"
   match "/:shorty", :controller => "polls", :action => :view_only
 
   # match '/:shorty' => 'responses#create'
