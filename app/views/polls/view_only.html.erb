@@ -5,13 +5,22 @@
   <tr>
     <th><%= ques.text %></th>
   </tr>
-  <tr>
-    <th><%= link_to 'Yes', polls_path %> / <%= link_to 'No', polls_path %></th>
-  </tr>
   </table>
     <%= form_for [@poll, ques, @response = Response.new(:question_id => ques.id)] do |f| %>
-      <%= f.text_field :text %>
+      <% if @response.question.a != nil %>
+        <%= f.label :A %>
+        <%= f.radio_button :text, @response.question.a %>
+        <%= f.label :B %>
+        <%= f.radio_button :text, @response.question.b %>
+        <%= f.label :C %>
+        <%= f.radio_button :text, @response.question.c %>
+      <% else %>
+
+        <%= f.text_field :text %>
+
+      <% end %>
       <%= f.submit 'Submit Response' %>
+
       <%= f.hidden_field :question_id %>
     <% end %>
 

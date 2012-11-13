@@ -3,9 +3,18 @@
 <% @poll.questions.each do |ques| %>
 <table>
   <tr>
-    <th><%= ques.text %></th>
+    <th><%= ques.text %> => </th>
+    <% if ques.a != nil %>
+      <th><%= "A: #{ques.a}  |  B: #{ques.b}  |  C: #{ques.c}" %></th>
+    <% end %>
+    <th><%= link_to 'Delete', poll_question_path(@poll, ques.id), :method => :delete %></th>
+    <th><%= link_to 'Edit', edit_poll_question_path(@poll, ques.id) %></th>
   </tr>
 </table>
 <% end %>
 <br><br>
+
 <%= render 'questions/form'%>
+
+<%= render 'questions/form_multiple_choice'%>
+

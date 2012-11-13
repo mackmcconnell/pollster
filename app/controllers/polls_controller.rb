@@ -25,6 +25,10 @@ class PollsController < ApplicationController
   def view_only
     @poll = Poll.find_by_shorty(params[:shorty])
   end
+  
+  def results
+    @poll = Poll.find(params[:id])
+  end
 
   def destroy
   end

@@ -1,7 +1,8 @@
 class ResponsesController < ApplicationController
 
   def create
-    @poll = Poll.find_by_shorty(params[:shorty])
+    puts params
+    @poll = Poll.find(params[:poll_id])
     @ques = @poll.questions.find(params[:question_id])
     @response = @ques.responses.new(params[:response])
     if @response.save

@@ -1,0 +1,14 @@
+<h1>Results for Poll: <%= @poll.title %></h1>
+
+<% @poll.questions.each do |question| %>
+  <th><h3><%= question.text %></h3></th>
+    <table>
+      <tr>
+        <% question.responses.each do |response| %>
+
+          <%= response.text %>
+        <% end %>
+      </tr>
+    </table>
+    <br>
+<% end %>

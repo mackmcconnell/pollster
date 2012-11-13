@@ -1,0 +1,14 @@
+<h1>Edit question: <%= @question.text %>
+
+<%= form_for [@poll, @question] do |f| %>
+  <%= f.text_field :text %>
+  <% if @question.a != nil %>
+    <%= f.label :A %>
+    <%= f.text_field :a %>
+    <%= f.label :B %>
+    <%= f.text_field :b %>
+    <%= f.label :C %>
+    <%= f.text_field :c %>
+  <% end %>
+  <%= f.submit 'Submit' %>
+<% end %>

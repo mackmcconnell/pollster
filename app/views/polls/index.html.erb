@@ -6,6 +6,7 @@
       <th><%= poll.title %></th>
       <th><%= link_to 'Edit', poll_path(poll.id) %></th>
       <th><%= link_to "shortened", "http://localhost:3000/#{poll.shorty}"%></th>
+      <th><%= link_to "results", results_poll_path(poll.id) %></th>
     </tr>
   </table>
 <% end %>

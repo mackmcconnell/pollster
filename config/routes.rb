@@ -4,11 +4,14 @@ Pollster::Application.routes.draw do
     member do
       get 'view_only'
     end
-    resources :questions, :only => [ :edit, :create, :update, :destroy ] do
-        resources :responses, :only => [:create]
+    member do
+      get 'results'
     end
-  end
-
+    resources :questions, :only => [ :edit, :create, :update, :destroy ] do
+      resources :responses, :only => [:create]
+    end
+  end  
+       
   match "/:shorty", :controller => "polls", :action => :view_only
 
   # match '/:shorty' => 'responses#create'

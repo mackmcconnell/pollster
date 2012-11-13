@@ -1,0 +1,11 @@
+<h4>New Multiple Choice Question</h4>
+<%= form_for [@poll, @question = Question.new] do |f| %>
+  <%= f.text_area :text %>
+  <%= f.label :A %>
+  <%= f.text_field :a %>
+  <%= f.label :B %>
+  <%= f.text_field :b %>
+  <%= f.label :C %>
+  <%= f.text_field :c %>
+  <%= f.submit 'Submit' %>
+<% end %>
